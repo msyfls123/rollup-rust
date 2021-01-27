@@ -1,0 +1,35 @@
+{
+  "name": "rollup-rust",
+  "version": "1.0.0",
+  "description": "rollup rust startup",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -rf ./dist && cross-env NODE_ENV=development rollup --config --watch",
+    "build": "rm -rf ./dist && cross-env NODE_ENV=production rollup --config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/msyfls123/rollup-rust.git"
+  },
+  "keywords": [
+    "rollup",
+    "rust"
+  ],
+  "author": "kimi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msyfls123/rollup-rust/issues"
+  },
+  "homepage": "https://github.com/msyfls123/rollup-rust#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-html": "^0.2.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-typescript": "^8.1.0",
+    "@wasm-tool/rollup-plugin-rust": "^1.0.5",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.38.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0"
+  }
+}
