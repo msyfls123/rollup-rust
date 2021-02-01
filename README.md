@@ -3,6 +3,8 @@ rollup-rust
 
 ## Install
 
+__If you can't run this project following normal `npm` steps, try codes below.__
+
 ```shell
 npm i
 node
