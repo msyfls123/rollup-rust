@@ -1,4 +1,4 @@
-// import typescript from '@rollup/plugin-typescript'
+import typescript from '@rollup/plugin-typescript'
 import html from '@rollup/plugin-html'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
@@ -9,7 +9,7 @@ import commonjs from '@rollup/plugin-commonjs'
 const hot = process.env.NODE_ENV === 'development'
 
 const plugins = [
-  // typescript(),
+  typescript(),
   nodeResolve({
     preferBuiltins: true,
     extensions: ['.js', '.json']
@@ -32,7 +32,7 @@ if (hot) {
 }
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: {
     dir: "dist",
     format: "iife",
