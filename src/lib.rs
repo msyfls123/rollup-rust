@@ -4,6 +4,8 @@ use js_sys::{Reflect};
 use serde_json::{Value};
 use serde::{Deserialize, Serialize};
 
+mod clock;
+
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
 #[cfg(feature = "wee_alloc")]
@@ -23,9 +25,7 @@ pub fn main_js() {
 
 #[wasm_bindgen]
 pub fn greet(name: &str) {
-    console::log_1(&JsValue::from("Hello world!!!"));
-    let window = window().unwrap();
-    window.alert_with_message(&format!("Hello, {}!", name));
+    console::log_1(&JsValue::from(&format!("Hello, {}!", name)));
 }
 
 #[wasm_bindgen]

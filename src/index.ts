@@ -8,4 +8,9 @@ wasm().then((module) => {
     b: 2,
     kimi: 'me',
   });
+  const p = document.createElement('p');
+  p.id = 'current-time';
+  p.style.color = '#36aefd';
+  document.documentElement.appendChild(p);
+  module.clock(2000);
 });

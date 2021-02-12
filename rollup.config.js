@@ -17,7 +17,9 @@ const plugins = [
   commonjs({
     include: /node_modules/,
   }),
-  rust(),
+  rust({
+    verbose: true,
+  }),
   html(),
 ]
 
