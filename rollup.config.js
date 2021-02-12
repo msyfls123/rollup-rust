@@ -1,4 +1,4 @@
-import typescript from '@rollup/plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 import html from '@rollup/plugin-html'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
