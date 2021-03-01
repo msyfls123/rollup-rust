@@ -5,6 +5,7 @@ use serde_json::{Value};
 use serde::{Deserialize, Serialize};
 
 mod clock;
+mod file;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.

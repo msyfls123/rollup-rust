@@ -12,5 +12,10 @@ wasm().then((module) => {
   p.id = 'current-time';
   p.style.color = '#36aefd';
   document.documentElement.appendChild(p);
-  module.clock(2000);
+  module.clock(1000);
+  const file = document.createElement('input');
+  file.id = 'file-input';
+  file.type = 'file'
+  document.documentElement.appendChild(file);
+  module.init_file(file.id);
 });

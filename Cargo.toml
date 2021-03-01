@@ -30,7 +30,11 @@ features = [
     "Document",
     "Element",
     "HtmlElement",
+    "HtmlInputElement",
     "EventListener",
     "EventTarget",
     "MouseEvent",
+    "InputEvent",
+    "File",
+    "FileList"
 ]
