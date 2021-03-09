@@ -1,6 +1,8 @@
 rollup-rust
 ===
 
+[Live Demo](https://msyfls123.github.io/rollup-rust/)
+
 ## Install
 
 __If you can't run this project following normal `npm` steps, try codes below.__
