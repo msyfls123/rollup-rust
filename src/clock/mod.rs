@@ -4,10 +4,10 @@ use web_sys::{Document, Element, Window, console, MouseEvent, HtmlElement};
 use wasm_bindgen::JsCast;
 
 #[wasm_bindgen]
-pub fn clock(time: i32) {
+pub fn clock(time: i32) -> Result<(), JsValue> {
     let window = web_sys::window().expect("should have a window in this context");
     let document = window.document().expect("window should have a document");
-    setup_clock(&window, &document, time);
+    setup_clock(&window, &document, time)
 }
 
 // Set up a clock on our page and update it each second to ensure it's got
@@ -25,7 +25,7 @@ fn setup_clock(window: &Window, document: &Document, time: i32) -> Result<(), Js
     update_time(&current_time);
     let a = Closure::wrap(Box::new(move || update_time(&current_time)) as Box<dyn Fn()>);
     window
-        .set_interval_with_callback_and_timeout_and_arguments_0(a.as_ref().unchecked_ref(), time);
+        .set_interval_with_callback_and_timeout_and_arguments_0(a.as_ref().unchecked_ref(), time)?;
     fn update_time(current_time: &Element) {
         current_time.set_inner_html(&String::from(
             Date::new_0().to_locale_string("cn-ZH", &JsValue::undefined()),
@@ -54,7 +54,7 @@ fn setup_clock(window: &Window, document: &Document, time: i32) -> Result<(), Js
         .expect("should have #current-time on the page")
         .dyn_ref::<HtmlElement>()
         .expect("#current-time be an `HtmlElement`")
-        .add_event_listener_with_callback("click", b.as_ref().unchecked_ref());
+        .add_event_listener_with_callback("click", b.as_ref().unchecked_ref())?;
 
     b.forget();
 
