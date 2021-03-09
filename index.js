@@ -442,7 +442,7 @@
     });
 
     var wasm$1 = async () => {
-                            await init("assets/rollup-rust-e2a7fac4.wasm");
+                            await init("assets/rollup-rust-5bdbed98.wasm");
                             return exports$1;
                         };
 
