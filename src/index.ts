@@ -15,7 +15,12 @@ wasm().then((module) => {
   module.clock(1000);
   const file = document.createElement('input');
   file.id = 'file-input';
-  file.type = 'file'
+  file.type = 'file';
+  file.accept = 'image/*';
   document.documentElement.appendChild(file);
+  const img = document.createElement('img');
+  img.id = 'preview';
+  img.style.display = 'none';
+  document.documentElement.appendChild(img);
   module.init_file(file.id);
 });

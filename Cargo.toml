@@ -9,6 +9,9 @@ edition = "2018"
 [lib]
 crate-type = ["cdylib"]
 
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
 [dependencies]
 console_error_panic_hook = "0.1.6"
 js-sys = "0.3.47"
@@ -36,5 +39,8 @@ features = [
     "MouseEvent",
     "InputEvent",
     "File",
-    "FileList"
+    "FileList",
+    "FileReader",
+    "HtmlImageElement",
+    "CssStyleDeclaration"
 ]
