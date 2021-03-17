@@ -39,7 +39,7 @@ fn read_file(file: &File) -> Result<(), JsValue> {
   let document = window.document().expect("window should have a document");
   let reader = FileReader::new()?;
   let reader2 = reader.clone();
-  let callback = Closure::wrap(Box::new(move || {
+  let callback = Closure::once_into_js(move || {
     let ele = document
       .get_element_by_id("preview")
       .expect("should have file on the page");
@@ -50,9 +50,8 @@ fn read_file(file: &File) -> Result<(), JsValue> {
     img.set_src(&result.as_string().unwrap());
     let style = ele.dyn_ref::<HtmlElement>().expect("not HtmlElement").style();
     style.set_property("display", "block").unwrap();
-  }) as Box<dyn Fn()>);
+  });
   reader.set_onload(Some(callback.as_ref().unchecked_ref()));
   reader.read_as_data_url(&file.as_ref())?;
-  callback.forget();
   Ok(())
 }
